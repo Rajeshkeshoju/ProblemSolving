@@ -1,6 +1,4 @@
-/**
-*	Problem : https://www.codechef.com/MAY21C/problems/SOLBLTY
-*/
+//	https://www.codechef.com/MAY21C/problems/SOLBLTY
 
 #include <iostream>
 using namespace std;
