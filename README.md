@@ -2,13 +2,13 @@
 For competive programming
 
 ## CodeChef
-![CodeChef/RajeshKeshoju](https://www.codechef.com/users/rajeshkeshoju)
+[CodeChef/RajeshKeshoju](https://www.codechef.com/users/rajeshkeshoju)
 
 ## HackerRank
-![HackerRank/RajeshKeshoju](https://hackerrank.com/rajeshkeshoju)
+[HackerRank/RajeshKeshoju](https://hackerrank.com/rajeshkeshoju)
 
 ## LeetCode
-![LeetCode/RajeshKeshoju](https://leetcode.com/rajeshkeshoju)
+[LeetCode/RajeshKeshoju](https://leetcode.com/rajeshkeshoju)
 
 ## InterviewBit
-![InterviewBit/RajeshKeshoju](https://interviewbit.com/profile/rajeshkeshoju)
+[InterviewBit/RajeshKeshoju](https://interviewbit.com/profile/rajeshkeshoju)
