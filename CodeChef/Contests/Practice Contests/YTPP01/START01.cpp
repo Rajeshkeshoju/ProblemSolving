@@ -10,5 +10,6 @@ int main() {
 	if(1<=number && number<=100000){
 	    cout << number;
 	}
+	
 	return 0;
 }
