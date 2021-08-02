@@ -36,22 +36,22 @@ int main() {
 	cin >> T;
 	
 	while(T--){
-        cin >> rainingCautions.rainyDays;
-        cin >> rainingCautions.criterialWaterLevel;
-        cin >> rainingCautions.redAlertWaterLevel;
-        
-        int rains[rainingCautions.rainyDays];
-        
-        for(int i=0; i<rainingCautions.rainyDays; i++){
-            cin >> rains[i];
-        }
-        
-        if(willThereBeARedAlert(rains, rainingCautions)){
-            cout << "YES";
-        }else{
-            cout << "NO";
-        }
-        cout << endl;
+		cin >> rainingCautions.rainyDays;
+		cin >> rainingCautions.criterialWaterLevel;
+		cin >> rainingCautions.redAlertWaterLevel;
+
+		int rains[rainingCautions.rainyDays];
+
+		for(int i=0; i<rainingCautions.rainyDays; i++){
+		    cin >> rains[i];
+		}
+
+		if(willThereBeARedAlert(rains, rainingCautions)){
+		    cout << "YES";
+		}else{
+		    cout << "NO";
+		}
+		cout << endl;
 	}
 	
 	return 0;
