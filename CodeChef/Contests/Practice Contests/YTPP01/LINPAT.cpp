@@ -11,12 +11,12 @@ void printPattern(int num1, int num2, int patternLength){
 }
 
 int main() {
-	
 	int N = 0;
 	cin >> N;
 	
 	if(1<=N && N<=1000){
 	    printPattern(10, 2, N/2);
 	}
+	
 	return 0;
 }
