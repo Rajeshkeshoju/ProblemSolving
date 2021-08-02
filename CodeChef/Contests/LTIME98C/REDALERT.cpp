@@ -4,7 +4,7 @@
 using namespace std;
 
 struct RainingCautions{
-    int rainyDays = 0;
+    	int rainyDays = 0;
 	int criterialWaterLevel = 0;
 	int redAlertWaterLevel = 0;
 }rainingCautions;
