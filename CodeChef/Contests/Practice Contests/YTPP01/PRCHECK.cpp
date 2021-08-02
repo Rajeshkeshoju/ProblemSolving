@@ -4,7 +4,6 @@
 using namespace std;
 
 bool isPrime(int number = 0){
-    
     if(number <= 1){
         return false;
     }
