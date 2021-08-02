@@ -21,8 +21,7 @@ int main() {
 	int number = 0;
 	cin >> number;
 	
-	if(1<=number && number<=1000000){
-	    
+	if(1<=number && number<=1000000){	    
 	    if(isPalindrome(number)){
 	        cout << "YES";
 	    }else{
