@@ -1,3 +1,5 @@
+//  https://leetcode.com/submissions/detail/582004577/
+
 class Solution {
 public:
     bool isGoodString(string s){
