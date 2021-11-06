@@ -1,3 +1,5 @@
+//  https://leetcode.com/submissions/detail/582969042/
+
 class Solution {
 public:
     double avg(int sum, int n){
