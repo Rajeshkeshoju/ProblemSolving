@@ -1,4 +1,4 @@
-//  Dutch National Flag alogrithm
+//  Dutch National Flag algorithm
 
 #include <iostream>
 #include <set>
