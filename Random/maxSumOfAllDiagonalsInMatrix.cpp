@@ -27,6 +27,7 @@ int main()
     int sum = 0;
     int maxSum = 0;
     
+    // Right Diagonals checking
     while(x<m || y<n){
         i = x;
         j = y;
@@ -48,6 +49,7 @@ int main()
         }
     }
     
+    // Left Diagonals checking
     y = n-1;
     x = 0;
     
