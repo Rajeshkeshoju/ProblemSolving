@@ -10,7 +10,7 @@ MatrixIndex searchKeyInRCSortedMatrix(int** arr, int m, int n, int target){
     int i = m-1;
     int j = 0;
     
-    while(i >= 0 || j < n){
+    while(i >= 0 && j < n){
         if(arr[i][j] == target){
             MatrixIndex matrixIndex;
             matrixIndex.row = i;
