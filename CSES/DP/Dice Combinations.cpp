@@ -22,8 +22,8 @@ void countDiceCombinations(int n, int& count) {
   * Optimal Recursive solution using Memoization [ TC: O(N), SC:O(N) + O(N+1) ] 
   * Solution should make it to Mod 10^9 + 1
  **/
-
-int countDiceCombinations(int n, vector<int>& dp) {
+ 
+long long countDiceCombinations(long long n, vector<long long>& dp) {
     if(n == 0) {
         return dp[0] = 1;
     }
@@ -37,7 +37,7 @@ int countDiceCombinations(int n, vector<int>& dp) {
     }
     
     for(int i=1; i<=6; i++) {
-        dp[n] += countDiceCombinations(n-i, dp);
+        (dp[n] += countDiceCombinations(n-i, dp)) %= MOD;
     }
     
     return dp[n];
