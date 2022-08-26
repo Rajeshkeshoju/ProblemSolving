@@ -10,8 +10,8 @@ public class UniqueSubsets
         }
         
         set = sum(set, list, arr, n, i+1);
+	    
         list.add(arr[i]);
-        
         set = sum(set, list, arr, n, i+1);
         list.remove(list.size()-1);
         
