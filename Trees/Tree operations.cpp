@@ -14,6 +14,25 @@ struct Node {
     }
 };
 
+Node* lowestCommonAncestor(Node* root, Node* p, Node* q) {
+    if(root == nullptr || root == p || root == q) {
+        return root;
+    }
+    
+    Node* left = lowestCommonAncestor(root -> left, p, q);
+    Node* right = lowestCommonAncestor(root -> right, p, q);
+    
+    if(left == nullptr) {
+        return right;
+    }
+    
+    if(right == nullptr) {
+        return left;
+    }
+    
+    return root;
+}
+
 void topView(Node* root, map<int, int>& list, int verticalLevel = 0) {
     if(root == nullptr) {
         return;
@@ -76,17 +95,86 @@ int heightOfTree(Node* root) {
     return 1 + max(left, right);
 }
 
-int widthOfTree(Node* root, int& maxWidth) {
+int diameterOfTree(Node* root, int& maxDiameter) {
     if(root == nullptr) {
         return 0;
     }
     
-    int left = widthOfTree(root -> left, maxWidth);
-    int right = widthOfTree(root -> right, maxWidth);
+    int left = diameterOfTree(root -> left, maxDiameter);
+    int right = diameterOfTree(root -> right, maxDiameter);
     
-    maxWidth = max(maxWidth, left + right);
+    maxDiameter = max(maxDiameter, left + right);
     
     return 1 + max(left, right);
+}
+
+void levelOrderSpiral(Node* root) {
+    list<Node*> listNodes;
+    int level = 0;
+    
+    listNodes.push_front(root);
+    
+    while(!listNodes.empty()) {
+        int n = listNodes.size();
+        
+        if(level & 1 == 0) {
+            while(n--) {
+                Node* node = listNodes.front();
+                listNodes.pop_front();
+                
+                cout << node -> data << " ";
+                
+                if(node -> left != nullptr) {
+                    listNodes.push_back(node -> left);
+                }
+                
+                if(node -> right != nullptr) {
+                    listNodes.push_back(node -> right);
+                }
+            }
+        } else {
+            while(n--) {
+                Node* node = listNodes.back();
+                listNodes.pop_back();
+                
+                cout << node -> data << " ";
+                
+                if(node -> right != nullptr) {
+                    listNodes.push_front(node -> right);
+                }
+                
+                if(node -> left != nullptr) {
+                    listNodes.push_front(node -> left);
+                }
+            }
+        }
+        
+        level++;
+    }
+    
+    cout << endl;
+}
+
+void levelOrder(Node* root) {
+    queue<Node*> list;
+    
+    list.push(root);
+    while(!list.empty()) {
+        Node* node = list.front();
+        list.pop();
+        
+        cout << node -> data << " ";
+        
+        if(node -> left != nullptr) {
+            list.push(node -> left);
+        }
+        
+        if(node -> right != nullptr) {
+            list.push(node -> right);
+        }
+    }
+    
+    cout << endl;
 }
 
 void preOrderIterative(Node* root) {
@@ -108,6 +196,8 @@ void preOrderIterative(Node* root) {
             st.push(temp -> left);
         }
     }
+    
+    cout << endl;
 }
 
 void postOrderIterative(Node* root) {
@@ -131,6 +221,8 @@ void postOrderIterative(Node* root) {
         
         cout << temp -> data << " ";
     }
+    
+    cout << endl;
 }
 
 void inOrder(Node* root) {
@@ -194,6 +286,7 @@ int main()
     root -> right -> left = new Node(12);
     root -> right -> right = new Node(18);
     
+    cout << "--- DFS ---" << endl;
     cout << "In-order: "; inOrder(root); cout << endl;
     cout << "Pre-order: "; preOrder(root); cout << endl;
     cout << "Post-order: "; postOrder(root); cout << endl;
@@ -202,11 +295,18 @@ int main()
     cout << "Pre-order (Iterative): "; preOrderIterative(root); cout << endl;
     // cout << "Post-order (Iterative): "; postOrderIterative(root); cout << endl;
     
+    cout << "--- BFS ---" << endl;
+    cout << "Level order: "; levelOrder(root);
+    cout << "Level order (Spiral): "; levelOrderSpiral(root);
+    cout << endl;
+    
+    
+    
     cout << "Height: " << heightOfTree(root) << endl;
     
-    int width = INT_MIN;
-    widthOfTree(root, width);
-    cout << "Width: " << width << endl;
+    int diameter = INT_MIN;
+    diameterOfTree(root, diameter);
+    cout << "Diameter: " << diameter << endl;
     
     vector<int> list;
     cout << "Left view: "; leftView(root, list); cout << endl;
@@ -228,8 +328,12 @@ int main()
     
     for(auto it: list2) {
         cout << it.second << " ";
-    }
-    cout << endl;
+    }cout << endl;
+    
+    Node*  p = root -> left -> left;
+    Node* q = root -> left -> right -> right;
+    cout << "Common Ancestor LCA(2, 8): ";
+    cout << lowestCommonAncestor(root, p, q) -> data; cout << endl;
 
     return 0;
 }
